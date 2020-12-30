@@ -1,0 +1,80 @@
+using System;
+
+namespace LW4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int Sum1 = 0;
+            int Sum2 = 0;
+            int Sum3 = 0;
+            int Sum4 = 0;
+            Console.WriteLine("Дана матрица A(MxN)");
+            Console.Write("M=");
+            int m = Convert.ToInt32(Console.ReadLine());
+            Console.Write("N=");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.WriteLine("Исходная матрица:");
+            int[,] k = new int[m, n];
+            Random r = new Random();
+            Console.WriteLine();
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    k[i, j] = r.Next(1, 10);
+                    Console.Write(k[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i % 2 == 0)
+                        Sum1 = Sum1 + k[i, j];
+
+                }
+            }
+            Console.WriteLine("Сумма не парных рядов: "+Sum1);
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i % 2 == 1)
+                        Sum2 = Sum2 + k[i, j];
+
+                }
+            }
+            Console.WriteLine("Сумма парных рядов: "+Sum2);
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j % 2 == 0)
+                        Sum3 = Sum3 + k[i, j];
+
+                }
+            }
+            Console.WriteLine("Сумма не парных столбиков: "+Sum3);
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j % 2 == 1)
+                        Sum4 = Sum4 + k[i, j];
+
+                }
+            }
+            Console.WriteLine("Сумма парных столбиков: "+Sum4);
+        }
+    }
+}

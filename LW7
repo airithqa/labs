@@ -22,7 +22,7 @@ namespace App
                     Console.WriteLine(i);
             }
 
-            Console.WriteLine("List: 12, 2, 23,0, 1, 4565, 4" );
+            Console.WriteLine("List: 12, 2, 23,10, 10, 4565, 4" );
             
         }
     }

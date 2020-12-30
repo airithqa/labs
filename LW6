@@ -1,0 +1,19 @@
+using System;
+using System.Text;
+
+namespace App
+{
+    static class Program
+    {
+        
+        static void Main()
+        {
+            string one = Console.ReadLine();
+            StringBuilder sb = new StringBuilder(one.Length);
+            for (int i = 0; i < sb.Capacity; i++)
+                sb.Insert(0, one[i]);
+            Console.WriteLine(sb.ToString()); 
+            Console.Read();
+        }
+    }
+}

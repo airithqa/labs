@@ -1,0 +1,25 @@
+using System;
+using System.Text;
+using System.Collections.Generic;
+namespace LW3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x, y;
+            Console.Write("Введите X число: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите Y число: ");
+            y = Convert.ToInt32(Console.ReadLine());
+            
+            if (y>=0 &&x<0)
+            {
+                Console.WriteLine("Координаты лежат на второй квадранте");
+            }
+            else
+                Console.WriteLine("Координаты не лежат на второй квадранте");
+            Console.ReadKey();
+        }
+    }
+}

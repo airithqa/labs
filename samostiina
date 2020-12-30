@@ -1,0 +1,96 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Task_1
+{
+    class Shop
+    {
+        List<Cars> cars = new List<Cars>()
+        {
+            new Cars() { Name = "Tesla", Color="Black",  Year="2017", Price="1000000"},
+            new Cars() { Name = "BMW", Color = "Gray",  Year = "2018", Price = "15000000"},
+            new Cars() { Name = "Ford", Color = "Red",  Year = "2019", Price = "2000000"},
+            new Cars() { Name = "Ferari", Color = "Light Gray",  Year = "2019", Price = "3000000"},
+        };
+        public void SearchCarName()
+        {
+            Console.WriteLine("Марка машины:");
+            string name = Console.ReadLine();
+            var car = cars.FirstOrDefault(d => d.Name == name);
+            if (car == null) Console.WriteLine("Данной модели машины нету в нашем магазине.Попробуйте найти по цене");
+            else
+                Console.WriteLine($"Name:{car.Name}\t Color: {car.Color}\t Year: {car.Year}\t Price: { car.Price}");
+        }
+        public void SearchCarPrice()
+        {
+            Console.WriteLine("Цена машины:");
+            string price = Console.ReadLine();
+            var car = cars.FirstOrDefault(d => d.Price == price);
+            if (car == null)
+            {
+                Console.WriteLine("Dанной модели машины нету в нашем магазине.Попробуйте найти по году производства");
+                return;
+            }
+            else
+                Console.WriteLine($"Name:{car.Name}\t Color: {car.Color}\t Year: {car.Year}\t Price: { car.Price}");
+        }
+        public void SearchcarPriceYear()
+        {
+            Console.WriteLine("Год:");
+            string year = Console.ReadLine();
+            var car = cars.FirstOrDefault(d => d.Year == year);
+            if (car == null)
+            {
+                Console.WriteLine("Dанной модели машины нету в нашем магазине.Попробуйте найти по цвету");
+                return;
+            }
+            else
+                Console.WriteLine($"Name:{car.Name}\t Color: {car.Color}\t Year: {car.Year}\t Price: { car.Price}");
+        }
+        public void SearchcarColor()
+        {
+            Console.WriteLine("Цвет:");
+            string color = Console.ReadLine();
+            var car = cars.FirstOrDefault(d => d.Color == color);
+            if (car == null)
+            {
+                Console.WriteLine("Dанной модели машины нету в нашем магазине.Вы вернулись к начальному меню");
+                return;
+            }
+            else
+                Console.WriteLine($"Name:{car.Name}\t Color: {car.Color}\t Year: {car.Year}\t Price: { car.Price}");
+        }
+    }
+    class Cars
+    {
+        public string Name { get; set; }
+        public string Color { get; set; }
+        public string Year { get; set; }
+        public string Price { get; set; }
+        public override string ToString()
+
+        {
+            return $"Name:{Name}\t Color: {Color}\t Year: {Year}\t Price: {Price}";
+        }
+        static void Main(string[] args)
+        {
+            var g = new Shop();
+            var flag = true;
+            while (flag)
+            {
+                Console.WriteLine("1 - найти машину в магазине по параметрам");
+                Console.WriteLine("2 - выход");
+                Console.Write("Опция > ");
+                var option = int.Parse(Console.ReadLine());
+                switch (option)
+                {
+                    case 1: g.SearchCarName(); g.SearchCarPrice(); g.SearchcarPriceYear(); g.SearchcarColor(); break;
+                    case 2: flag = false; break;
+                    default: Console.WriteLine("Упс"); break;
+                }
+            }
+        }
+    }
+}
+    
